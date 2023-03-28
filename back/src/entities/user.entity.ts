@@ -1,36 +1,35 @@
-import { hashSync } from 'bcrypt';
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, BeforeInsert, BeforeUpdate, OneToMany} from 'typeorm';
-import { Contact } from './contacts.entity';
+import { hashSync } from 'bcrypt'
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, BeforeInsert, BeforeUpdate, OneToMany } from 'typeorm'
+import { Contact } from './contacts.entity'
 
 @Entity('users')
 class User {
+  @PrimaryGeneratedColumn('uuid')
+  id: string
 
-   @PrimaryGeneratedColumn('uuid')
-   id: string
+  @Column()
+  name: string
 
-   @Column()
-   name: string
+  @Column()
+  email: string
 
-   @Column()
-   email: string
+  @Column()
+  password: string
 
-   @Column()
-   password: string
+  @Column()
+  phone: string
 
-   @Column()
-   phone: string
+  @CreateDateColumn()
+  createdAt: Date
 
-   @CreateDateColumn()
-   createdAt: Date
+  @OneToMany(() => Contact, (contact) => contact)
+  contacts: Contact[]
 
-   @OneToMany(() => Contact, contact => contact)
-   contacts : Contact[] 
-
-   @BeforeUpdate()
-   @BeforeInsert()
-   hashPassword(){
-      this.password = hashSync(this.password,10)
-   }
+  @BeforeUpdate()
+  @BeforeInsert()
+  hashPassword() {
+    this.password = hashSync(this.password, 10)
+  }
 }
 
-export {User}
+export { User }

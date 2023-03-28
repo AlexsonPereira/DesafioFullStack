@@ -1,19 +1,18 @@
-import AppDataSource from "../../data-source"
-import { User } from "../../entities/user.entity"
-import { AppError } from "../../errors/AppError"
-import { responseUserSerializer } from "../../serializer/user.serializer"
+import AppDataSource from '../../data-source'
+import { User } from '../../entities/user.entity'
+import { AppError } from '../../errors/AppError'
+import { responseUserSerializer } from '../../serializer/user.serializer'
 
-export const listUserService = async (id:string) => {
+export const listUserService = async (id: string) => {
+  const userRepo = AppDataSource.getRepository(User)
 
-   const userRepo = AppDataSource.getRepository(User)
+  const usersList = await userRepo.findOneBy({ id: id })
 
-   const usersList = await userRepo.findOneBy({id:id})
+  console.log(usersList)
 
-   console.log(usersList)
+  const listUsersWithoutPass = await responseUserSerializer.validate(usersList, {
+    stripUnknown: true
+  })
 
-   const listUsersWithoutPass = await responseUserSerializer.validate(usersList,{
-      stripUnknown: true
-   })
-
-   return listUsersWithoutPass
+  return listUsersWithoutPass
 }

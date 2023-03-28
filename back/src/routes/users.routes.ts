@@ -1,8 +1,8 @@
-import { Router } from "express";
-import { createUserController, deleteUserController, editUserController, listUserController } from "../controllers/users.controllers";
-import { ensureDataIsValidMiddleware } from "../middlewares/ensureDataIsValid.middlewar";
-import { verifyAuthMiddleware } from "../middlewares/verifyAuth.middleware";
-import { createUserSerializer } from "../serializer/user.serializer";
+import { Router } from 'express'
+import { createUserController, deleteUserController, editUserController, listUserController } from '../controllers/users.controllers'
+import { ensureDataIsValidMiddleware } from '../middlewares/ensureDataIsValid.middlewar'
+import { verifyAuthMiddleware } from '../middlewares/verifyAuth.middleware'
+import { createUserSerializer } from '../serializer/user.serializer'
 
 export const userRoute = Router()
 

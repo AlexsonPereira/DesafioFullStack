@@ -1,26 +1,25 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, ManyToOne} from 'typeorm';
-import { User } from './user.entity';
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, ManyToOne } from 'typeorm'
+import { User } from './user.entity'
 
 @Entity('contacts')
 class Contact {
+  @PrimaryGeneratedColumn('uuid')
+  id: string
 
-   @PrimaryGeneratedColumn('uuid')
-   id: string
+  @Column()
+  name: string
 
-   @Column()
-   name: string
+  @Column()
+  email: string
 
-   @Column()
-   email: string
+  @Column()
+  phone: string
 
-   @Column()
-   phone: string
+  @CreateDateColumn()
+  createdAt: Date
 
-   @CreateDateColumn()
-   createdAt: Date
-
-   @ManyToOne(() => User, {eager: true})
-   user : User
+  @ManyToOne(() => User, { eager: true })
+  user: User
 }
 
-export {Contact}
+export { Contact }
