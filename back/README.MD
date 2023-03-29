@@ -1,4 +1,4 @@
-Para rodar o projeto em ambiente local, rode o yarn na raiz do projeto, ao finalizar a instalação das dependencias, rode "yarn dev" e pronto
+Para rodar o projeto em ambiente local, rode o yarn na raiz do projeto, ao finalizar a instalação das dependencias,rode as migrações com yarn typeorm migration:run -d ./src/data-source e depois o rode o comando "yarn dev" e pronto
 e a api estara rodando em localmente.
 
 Documentação da API ContactsAPI

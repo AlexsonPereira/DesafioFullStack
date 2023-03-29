@@ -61,6 +61,13 @@ export const SideFormLogin = styled.div`
         }
       }
 
+      span {
+        color: red;
+        font-size: 0.7rem;
+        align-self: flex-start;
+        margin-top: 8px;
+      }
+
       > div {
         width: 100%;
         max-width: 350px;
@@ -83,6 +90,10 @@ export const SideFormLogin = styled.div`
         > p {
           font-size: 0.9rem;
           text-align: center;
+
+          > strong {
+            cursor: pointer;
+          }
         }
       }
     }

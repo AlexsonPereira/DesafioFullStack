@@ -10,6 +10,69 @@ export const ModalBGStyle = styled.div`
   top: 0;
   background-color: #00000050;
 
+  .CreateAccountForm {
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    padding: 32px;
+    border-radius: 8px;
+
+    > span {
+      color: red;
+      font-size: 0.7rem;
+      align-self: flex-start;
+      margin-top: 8px;
+    }
+
+    > button {
+      width: 100%;
+      background-color: #61d2f1;
+      height: 50px;
+      margin-top: 8px;
+      color: #ffffff;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    > label {
+      width: 100%;
+      font-size: 0.9rem;
+      margin-top: 16px;
+      margin-bottom: 8px;
+    }
+
+    > input {
+      width: 100%;
+      max-width: 250px;
+      min-width: 350px;
+      height: 50px;
+      border-radius: 8px;
+      border: 2px solid #61d2f1;
+      background-color: #d9d9d9;
+      padding: 20px 10px;
+    }
+
+    div {
+      h2 {
+        font-size: 2rem;
+      }
+
+      p {
+        font-size: 2rem;
+        cursor: pointer;
+      }
+
+      :nth-child(1) {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+  }
+
   .ModalAddContact {
     display: flex;
     flex-direction: column;
