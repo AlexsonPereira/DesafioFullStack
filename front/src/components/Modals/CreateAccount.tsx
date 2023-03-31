@@ -27,6 +27,7 @@ export const CreateAccount = ({ setIsModal }: any) => {
       .post('/users', data)
       .then((res) => {
         toast.success('Sucesso ao realizar cadastro')
+        setIsModal(false)
       })
       .catch((err) => {
         toast.error('Erro ao realizar cadastro')
