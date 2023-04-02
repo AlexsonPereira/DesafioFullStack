@@ -47,6 +47,7 @@ export const HomePage = () => {
         setUser(res.data)
       })
       .catch((res) => {
+        console.log(res)
         localStorage.clear()
         navigate('/')
       })
@@ -60,8 +61,10 @@ export const HomePage = () => {
         setContactList(res.data)
       })
       .catch((res) => {
-        localStorage.clear()
-        navigate('/')
+        console.log(res)
+
+        // localStorage.clear()
+        // navigate('/')
       })
   }, [ModalDelete, ModalAdd])
 
