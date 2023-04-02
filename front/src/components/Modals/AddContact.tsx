@@ -29,6 +29,7 @@ export const AddContactModal = ({ setModalAdd }: any) => {
         setModalAdd(false)
       })
       .catch((res) => {
+        console.log(res)
         toast.error('Não foi possivel criar o contato')
       })
   }

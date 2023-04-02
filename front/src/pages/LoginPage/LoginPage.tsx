@@ -30,6 +30,7 @@ export const LoginPage = () => {
     api
       .post('/login', data)
       .then((res) => {
+        toast.success('Sucesso ao realizar login')
         localStorage.setItem('@Contact-Token', res.data.token)
         navigate('home')
       })
