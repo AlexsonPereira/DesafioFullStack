@@ -41,18 +41,16 @@ export const HomePage = () => {
 
   useEffect(() => {
     if (!localStorage.getItem('@Contact-Token')) {
-      navigate('home')
+      navigate('/')
     }
+
     api
       .get('/users')
       .then((res) => {
-        console.log(res.data)
         setUser(res.data)
       })
-      .catch((res) => {
-        localStorage.clear()
-        navigate('/')
-      })
+
+      .catch((res) => {})
   }, [])
 
   useEffect(() => {
@@ -67,6 +65,7 @@ export const HomePage = () => {
           navigate('/')
         })
     }, 500)
+
   }, [ModalDelete, ModalAdd])
 
   return (
