@@ -49,8 +49,9 @@ export const HomePage = () => {
       .then((res) => {
         setUser(res.data)
       })
-
-      .catch((res) => {})
+      .catch((res) => {
+        console.log(res)
+      })
   }, [])
 
   useEffect(() => {
@@ -61,8 +62,7 @@ export const HomePage = () => {
           setContactList(res.data)
         })
         .catch((res) => {
-          localStorage.clear()
-          navigate('/')
+          console.log(res)
         })
     }, 500)
 
