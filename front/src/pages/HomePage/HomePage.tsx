@@ -46,7 +46,6 @@ export const HomePage = () => {
     api
       .get('/users')
       .then((res) => {
-        console.log(res.data)
         setUser(res.data)
       })
       .catch((res) => {
