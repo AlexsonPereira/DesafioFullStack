@@ -40,29 +40,25 @@ export const HomePage = () => {
   }
 
   useEffect(() => {
+    if (!localStorage.getItem('@Contact-Token')) {
+      navigate('/')
+    }
+
     api
       .get('/users')
       .then((res) => {
-        console.log(res.data)
         setUser(res.data)
       })
-      .catch((res) => {
-        localStorage.clear()
-        navigate('/')
-      })
+      .catch((res) => {})
   }, [])
 
   useEffect(() => {
     api
       .get('/contact')
       .then((res) => {
-        console.log(res.data)
         setContactList(res.data)
       })
-      .catch((res) => {
-        localStorage.clear()
-        navigate('/')
-      })
+      .catch((res) => {})
   }, [ModalDelete, ModalAdd])
 
   return (

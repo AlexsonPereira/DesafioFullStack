@@ -30,6 +30,7 @@ export const LoginPage = () => {
     api
       .post('/login', data)
       .then((res) => {
+        toast.success('Login realizado com sucesso')
         localStorage.setItem('@Contact-Token', res.data.token)
         navigate('home')
       })
@@ -39,8 +40,7 @@ export const LoginPage = () => {
   }
 
   useEffect(() => {
-    const token = localStorage.getItem('@Contact-Token')
-    if (token) {
+    if (localStorage.getItem('@Contact-Token')) {
       navigate('home')
     }
   }, [])
