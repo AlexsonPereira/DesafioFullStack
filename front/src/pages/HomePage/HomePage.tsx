@@ -54,12 +54,18 @@ export const HomePage = () => {
   }, [])
 
   useEffect(() => {
-    api
-      .get('/contact')
-      .then((res) => {
-        setContactList(res.data)
-      })
-      .catch((res) => {})
+    setTimeout(() => {
+      api
+        .get('/contact')
+        .then((res) => {
+          setContactList(res.data)
+        })
+        .catch((res) => {
+          localStorage.clear()
+          navigate('/')
+        })
+    }, 500)
+
   }, [ModalDelete, ModalAdd])
 
   return (
@@ -83,7 +89,7 @@ export const HomePage = () => {
           <ul className="ContactList">
             {contactList?.length == 0 ? <h2 style={{ color: '#FFFFFF' }}>Você não tem contatos adicionados</h2> : null}
             {contactList?.map((e) => {
-              return <ContactCard setContactIdModal={setContactIdModal} contactsDetails={e} setModalDelete={setModalDelete} />
+              return <ContactCard key={e.id} setContactIdModal={setContactIdModal} contactsDetails={e} setModalDelete={setModalDelete} />
             })}
           </ul>
         </div>
