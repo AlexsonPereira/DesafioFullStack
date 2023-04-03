@@ -56,7 +56,7 @@ export const HomePage = () => {
   }, [])
 
   useEffect(() => {
-    setInterval(() => {
+    setTimeout(() => {
       api
         .get('/contact')
         .then((res) => {
