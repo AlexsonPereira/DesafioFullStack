@@ -49,6 +49,7 @@ export const HomePage = () => {
       .then((res) => {
         setUser(res.data)
       })
+
       .catch((res) => {})
   }, [])
 
