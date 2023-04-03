@@ -43,6 +43,7 @@ export const HomePage = () => {
     if (!localStorage.getItem('@Contact-Token')) {
       navigate('/')
     }
+
     api
       .get('/users')
       .then((res) => {
@@ -64,6 +65,7 @@ export const HomePage = () => {
           console.log(res)
         })
     }, 500)
+
   }, [ModalDelete, ModalAdd])
 
   return (
