@@ -1,6 +1,7 @@
 import { IUserResponse } from '../interfaces/users'
 import * as yup from 'yup'
 import { responseContactSerializer } from './contact.serializer'
+import { responseListContactsSerializer } from './contact.serializer'
 
 export const createUserSerializer: any = yup.object().shape({
   name: yup.string().required(),
@@ -10,9 +11,10 @@ export const createUserSerializer: any = yup.object().shape({
 })
 
 export const responseUserSerializer: any = yup.object().shape({
-  id: yup.string().required(),
+  contacts: responseListContactsSerializer,
   email: yup.string().email().required(),
   phone: yup.string().required(),
   createdAt: yup.date().required(),
-  name: yup.string().required()
+  name: yup.string().required(),
+  id: yup.string().required()
 })
