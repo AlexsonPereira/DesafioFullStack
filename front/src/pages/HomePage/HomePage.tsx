@@ -48,7 +48,6 @@ export const HomePage = () => {
       .get('/users')
       .then((res) => {
         setUser(res.data)
-        // setContactList(res.data)
       })
       .catch((res) => {
         console.log(res)
