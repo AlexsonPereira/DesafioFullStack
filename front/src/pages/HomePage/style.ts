@@ -51,7 +51,6 @@ export const HomePageStyle = styled.div`
     flex-wrap: wrap;
     display: flex;
     gap: 16px;
-    justify-content: space-between;
   }
 
   .ContactCard {

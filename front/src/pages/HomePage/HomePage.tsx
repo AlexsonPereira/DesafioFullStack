@@ -15,6 +15,7 @@ interface IUser {
   id: string
   createdAt: string
   email: string
+  contacts: IContact[]
 }
 
 export interface IContact {
@@ -28,7 +29,6 @@ export interface IContact {
 export const HomePage = () => {
   const [ModalAdd, setModalAdd] = useState(false)
   const [ModalDelete, setModalDelete] = useState(false)
-  const [contactList, setContactList] = useState<IContact[]>()
   const [contactIdModal, setContactIdModal] = useState<string>()
   const [user, setUser] = useState<IUser>()
 
@@ -48,23 +48,11 @@ export const HomePage = () => {
       .then((res) => {
         console.log(res.data)
         setUser(res.data)
+        // setContactList(res.data)
       })
       .catch((res) => {
         console.log(res)
       })
-  }, [])
-
-  useEffect(() => {
-    setTimeout(() => {
-      api
-        .get('/contact')
-        .then((res) => {
-          setContactList(res.data)
-        })
-        .catch((res) => {
-          console.log(res)
-        })
-    }, 500)
   }, [ModalDelete, ModalAdd])
 
   return (
@@ -86,8 +74,8 @@ export const HomePage = () => {
         </div>
         <div>
           <ul className="ContactList">
-            {contactList?.length == 0 ? <h2 style={{ color: '#FFFFFF' }}>Você não tem contatos adicionados</h2> : null}
-            {contactList?.map((e) => {
+            {user?.contacts?.length == 0 ? <h2 style={{ color: '#FFFFFF' }}>Você não tem contatos adicionados</h2> : null}
+            {user?.contacts?.map((e) => {
               return <ContactCard key={e.id} setContactIdModal={setContactIdModal} contactsDetails={e} setModalDelete={setModalDelete} />
             })}
           </ul>

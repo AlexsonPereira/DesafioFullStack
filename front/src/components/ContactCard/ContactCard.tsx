@@ -30,7 +30,6 @@ export const ContactCard = ({ setModalDelete, contactsDetails, setContactIdModal
             setContactIdModal(contactsDetails.id)
           }}
         />
-        <Pen />
       </div>
     </ContactCardStyle>
   )
