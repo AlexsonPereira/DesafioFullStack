@@ -22,7 +22,7 @@ class User {
   @CreateDateColumn()
   createdAt: Date
 
-  @OneToMany(() => Contact, (contact) => contact)
+  @OneToMany(() => Contact, (contact) => contact.user, {eager:true})
   contacts: Contact[]
 
   @BeforeUpdate()
