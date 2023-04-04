@@ -43,10 +43,10 @@ export const HomePage = () => {
     if (!localStorage.getItem('@Contact-Token')) {
       navigate('/')
     }
+
     api
       .get('/users')
       .then((res) => {
-        console.log(res.data)
         setUser(res.data)
         // setContactList(res.data)
       })
